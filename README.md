@@ -30,8 +30,8 @@ This separation allows for better management of Docker settings and application-
 ### Steps to Run the Project Locally
 1. Clone the repository:
    ```
-   git clone [Your Repository URL]
-   cd [Your Repository Name]
+    git clone https://github.com/spyrospaou/laravel-company-management.git
+    cd laravel-company-management
    ```
 
 2. Environment setup:
