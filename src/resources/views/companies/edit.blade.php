@@ -43,7 +43,10 @@
 
                         <div class="mb-4">
                             <label for="website" class="block text-gray-700 text-sm font-bold mb-2">Website:</label>
-                            <input type="url" name="website" id="website" value="{{ old('website', $company->website) }}" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline @error('website') border-red-500 @enderror" required>
+                            <input type="text" name="website" id="website" value="{{ old('website', $company->website ?? '') }}" 
+                                class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline @error('website') border-red-500 @enderror" 
+                                required autocomplete="off"
+                                placeholder="www.example.com">
                             @error('website')
                                 <p class="text-red-500 text-xs italic mt-2">{{ $message }}</p>
                             @enderror

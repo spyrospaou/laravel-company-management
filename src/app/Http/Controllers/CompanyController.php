@@ -28,9 +28,9 @@ class CompanyController extends Controller
     public function store(Request $request): RedirectResponse
     {
         $validated = $request->validate([
-            'name' => 'required|max:255',
-            'address' => 'required|max:255',
-            'website' => 'required|url',
+            'name' => 'required|max:255|min:3',
+            'address' => 'required|max:255|min:3',
+            'website' => 'required',
             'email' => 'required|email',
         ]);
 
@@ -60,9 +60,13 @@ class CompanyController extends Controller
         $validated = $request->validate([
             'name' => 'required|max:255|min:3',
             'address' => 'required|max:255|min:3',
-            'website' => 'required|url',
+            'website' => 'required',
             'email' => 'required|email',
         ]);
+
+        if (!Str::startsWith($validated['website'], ['http://', 'https://'])) {
+        $validated['website'] = 'http://' . $validated['website'];
+        }
 
         $company->update($validated);
         return redirect()->route('companies.index')->with('success', 'Company updated successfully.');

@@ -62,6 +62,8 @@ This separation allows for better management of Docker settings and application-
    ```
    docker-compose exec app npm install
    docker-compose exec app npm run dev
+
+Make sure to check the console output to see which port Vite is actually using
    ```
 
 8. Access the application in your web browser at `http://localhost:8888`
